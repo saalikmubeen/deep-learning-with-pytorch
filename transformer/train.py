@@ -1,7 +1,3 @@
-from model import build_transformer
-from dataset import BilingualDataset, causal_mask
-from config import get_config, get_weights_file_path, latest_weights_file_path
-
 import torchtext.datasets as datasets
 import torch
 import torch.nn as nn
@@ -24,7 +20,8 @@ import torchmetrics
 from torch.utils.tensorboard import SummaryWriter
 
 from model import get_model
-from dataset import get_dataset
+from dataset import get_dataset, causal_mask
+from config import get_config, get_weights_file_path, latest_weights_file_path
 
 
 def greedy_decode(model, source, source_mask, tokenizer_src, tokenizer_tgt, max_len, device):
